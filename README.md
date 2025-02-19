@@ -1,4 +1,11 @@
 # Distributed Image Compression with Conditional Diffusion Models
+![Cityscape](figs/city.png)
+
+![Kitti](figs/kitti.png) 
+
+## Abstract
+Distributed image compression explores the inherent correlation to remove redundancy between multi-view images, which has been considered a feasible solution to achieve a higher compression performance in distributed scenarios. Recently, various distributed image compression methods have been developed. However, due to the limited capability of the modeling data probability distributions, these methods result in blurry artifacts in image structures. In this work, we propose the distributed image coding method (DICM) that is the first to introduce a conditional diffusion generation model in the field of distributed image compression, using the image information decoded from the latent space along with side information as conditions to guide the denoising process of the diffusion model. Additionally, to ensure that the reconstructed images align with human visual perception, we optimize the model's noise prediction performance according to perceptual metrics. Experimental results show that DICM outperforms the state-of-the-art distributed compression methods in terms of DISTS scores and achieves comparable performance to VAE-based distributed compression methods on other distortion metrics.
+
 ## Requirements
 `Python 3.9` is recommended.
 
@@ -38,6 +45,10 @@ Our code utilizes the Accelerate library to simplify multi-card execution. To us
 ```bash
 accelerate launch train.py
 ```
+## Results
+![Result](figs/result.png) 
+RD performance comparison of various models trained on the Cityscapes dataset:(a)LPIPS; (b)FID; (c)DISTS;(d)PSNR; (e)MS-SSIM; (f)SSIM. The downward arrow and the upward arrow respectively indicate that the smaller the value, the better the reconstruction effect, and the larger the value, the better the reconstruction effect, respectively.
+
 ## Acknowledgment
 Our work is inspired by and implemented based on the following projects. We deeply appreciate their outstanding open-source contributions:
 - [CDC_compression](https://github.com/buggyyang/CDC_compression)
